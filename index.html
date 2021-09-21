@@ -5,17 +5,32 @@
     <meta name="viewport" content="width=device-width">
     <title>repl.it</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
-    <form id="form">
-    <input name="hours" placeholder="hours" id="hours"/>
-    <input name="minutes" placeholder="minutes" id="minutes"/>
-    <input name="seconds" placeholder="seconds" id="seconds"/>
-    <button type="submit">Set Timer</button>
-    </form>
+    <section class="container">
     <h2 id="countdown"></h2>
-    <button onclick=countDown() id="start" class="hide">Start</button>
-    <button id="stop" onclick=stopCountdown() class="hide">Stop</button>
+    <div class="controls">
+      <button onclick=countDown() id="start" class="hide"><i class="fas fa-play"></i></button>
+      <button id="stop" onclick=stopCountdown() class="hide">Stop</button>
+      <button id="reset" onclick=resetCountdown() class="hide">Reset</button>
+    </div>
+    <form id="form">
+      <div class="form-input">
+        <label for="hours">Hours</label>
+        <input name="hours" placeholder="hours" id="hours"/>
+      </div>
+      <div class="form-input">
+        <label for="minutes">Minutes</label>
+        <input name="minutes" placeholder="minutes" id="minutes"/>
+      </div>
+      <div class="form-input">
+        <label for="seconds">Seconds</label>
+        <input name="seconds" placeholder="seconds" id="seconds"/>
+      </div>
+      <button id="set" type="submit">Set Timer</button>
+    </form>
+    </section>
   <!-- <script src="es6.js"></script> -->
   <!-- <script src="JADM_BigO.js"></script>
   <script src="JS_LeetQuestions.js"></script>

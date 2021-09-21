@@ -1,7 +1,8 @@
 let countdown = document.getElementById("countdown")
 let form = document.getElementById("form")
 let start = document.getElementById("start");
-let stop = document.getElementById("stop")
+let stop = document.getElementById("stop");
+let reset = document.getElementById("reset");
 
 let originalTime = 0
 let timeLeft = 0
@@ -47,9 +48,13 @@ const countdownInterval = () => {
 let interval;
 
 function countDown() {
+  if (timeLeft <= 0) {
+    return;
+  }
   interval = setInterval(countdownInterval, 1000)
   start.setAttribute("class", "hide");
   stop.setAttribute("class", "show");
+  reset.setAttribute("class", "show");
 }
 
 function stopCountdown() {
@@ -57,6 +62,16 @@ function stopCountdown() {
   stop.setAttribute("class", "hide");
   start.setAttribute("class", "show")
   console.log("Hello, Laverne.")
+}
+
+function resetCountdown() {
+  timeLeft = originalTime;
+  const convertedTime = msToTime(timeLeft);
+  countdown.innerText = convertedTime;
+  clearInterval(interval);
+
+  stop.setAttribute("class", "hide");
+  start.setAttribute("class", "show")
 }
 
 form.addEventListener("submit", (e) => {
@@ -78,4 +93,3 @@ form.addEventListener("submit", (e) => {
   start.setAttribute("class", "show")
   countdown.innerText = convertedTime;
 });
-
